@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#inicio {
+    height: 100vh;
+    background-image: url("src/2.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 30px 50px;
+}
+
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#homebar{
+    display: flex;
+    gap: 30px;
+    background-color: #f78429;
+    border-radius: 50px;
+    align-items: center;
+    padding: 14px 30px;
+    font-size: 18px;
+}
+
+#homebar a {
+    color: white;
+    font-weight: 500;
+}
+
+#b-homebar{
+    display: flex;
+    background-color: #f7a35f;
+    border-radius: 50px;
+    padding: 14px 30px;
+}
+
+#b-homebar a {
+    color: white;
+    font-weight: 600;
+}
+
+#hometxt {
+    margin-top: 220px;
+}
+
+#hometxt h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 64px;
+    font-weight: 500;
+    line-height: 1.3;
+    color: white;
+}
+
+#hometxt h1 em {
+    font-style: italic;
+    font-weight: 400;
+}
+
+#agende {
+    margin-top: 30px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #f78429;
+    color: white;
+    padding: 18px 36px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.split {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    padding: 100px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.split-text,
+.split-media {
+    flex: 1;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #f78429;
+    color: white;
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.split-text h2 {
+    font-family: opensans, serif;
+    font-size: 42px;
+    font-weight: 500;
+    line-height: 1.25;
+    color: #1a1a1a;
+    margin-bottom: 24px;
+}
+
+.split-text h2 em {
+    font-style: italic;
+    font-weight: 400;
+}
+
+.split-text p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 18px;
+}
+
+.split-media img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 24px;
+    display: block;
+}
+
+.stack {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.stack h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 34px;
+    font-weight: 500;
+    line-height: 1.25;
+    color: #1a1a1a;
+}
+
+.stack h2 em {
+    font-style: italic;
+    font-weight: 400;
+}
+
+.btn-alt {
+    background-color: #f7a35f;
+}
+
+.line1, .line2 { display:inline-block; overflow:hidden; white-space:nowrap; width:0; animation-fill-mode:forwards; }
+.line1 { animation: type1 .8s steps(9) forwards; }
+.line2 { animation: type2 1s steps(17) forwards, blink .75s step-end infinite; animation-delay:.9s,.9s; border-right:3px solid white; }
+@keyframes type1 { to { width: 9ch; } }
+@keyframes type2 { to { width: 12ch; } }
+@keyframes blink { 50% { border-color: transparent; } }
+
+.split-text > *, .split-media > * {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .6s ease, transform .6s ease;
+}
+.split-text.visible > *, .split-media.visible > * {
+    opacity: 1;
+    transform: translateY(0);
+}
+.split-text > *:nth-child(1) { transition-delay: 0s; }
+.split-text > *:nth-child(2) { transition-delay: .1s; }
+.split-text > *:nth-child(3) { transition-delay: .2s; }
+.split-text > *:nth-child(4) { transition-delay: .3s; }
+.split-text > *:nth-child(5) { transition-delay: .4s; }
+.split-text > *:nth-child(6) { transition-delay: .5s; }
+.split-text > *:nth-child(7) { transition-delay: .6s; }
+
+@media (max-width: 990px) {
+    #inicio {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* empurra o 1º filho pro topo, o último pro fim, e centraliza o do meio no espaço sobrando */
+        height: 100dvh;
+        padding: 20px 20px 40px;
+    }
+
+    #hometxt {
+        margin-top: 0; /* não precisa mais — o flex acima já cuida do espaçamento */
+    }
+
+    #agende {
+        margin-top: 0;
+    }
+    
+    .split {
+        flex-direction: column;
+        padding: 60px 24px;
+    }
+    #homebar { flex-wrap: wrap; justify-content: center; font-size: 14px; }
+    #navbar  { flex-direction: column; gap: 12px; }
+    #hometxt { margin-top: 100px; }
+    #hometxt h1 { font-size: 34px; }
+    .split-text h2 { font-size: 26px; }
+    .stack h2 { font-size: 22px; }
+}
